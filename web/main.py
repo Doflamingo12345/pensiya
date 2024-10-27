@@ -36,7 +36,7 @@ if section == "Загрузка данных":
         df_1 = pd.read_csv(uploaded_file1, encoding='cp1251', sep=';') if uploaded_file1.name.endswith('.csv') else pd.read_excel(
             uploaded_file1)
         df_2 = pd.read_csv(uploaded_file2, encoding='cp1251', sep=';') if uploaded_file2.name.endswith('.csv') else pd.read_excel(
-            uploaded_file2)
+            uploaded_file2).head(100000)
         st.success("Файлы успешно загружены.")
         st.write("Пример данных клиентов:", df_1.head())
         st.write("Пример данных операций:", df_2.head())
