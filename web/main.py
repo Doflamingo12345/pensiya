@@ -1,16 +1,9 @@
 import pandas as pd
-import numpy as np
+
 import streamlit as st
-from tqdm import tqdm # Библиотека для визуализации прогресса циклов
 from plotly_roc import metrics, graphs
-import matplotlib.pyplot as plt
-import seaborn as sns # Библиотеки для визуализации
 
 from sklearn.preprocessing import LabelEncoder, StandardScaler # Инструменты для предобработки данных
-from sklearn.model_selection import train_test_split # Разделение данных на обучающую и тестовую выборки
-import scipy.stats as stats # Статистические инструменты
-
-from sklearn.metrics import f1_score, confusion_matrix, roc_curve, auc # Метрики для оценки модели
 import os # Работа с файловой системой
 
 import torch
@@ -109,7 +102,7 @@ if section == "Анализ данных":
     batch_num = 0
 
     # Обработка данных по батчам
-    for batch in tqdm(dataloader):
+    for batch in dataloader:
         # Преобразование батча в DataFrame
         batch_df = pd.DataFrame(batch.numpy(), columns=dataset.df.columns)
         # Сохранение обработанного батча в виде CSV-файла
